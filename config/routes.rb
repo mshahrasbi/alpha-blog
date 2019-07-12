@@ -8,4 +8,8 @@ Rails.application.routes.draw do
     root 'pages#home'
     get 'about', to: 'pages#about'
 
+    get 'signup', to: 'users#new'
+    # post 'users', to: 'users#create'    # this will you 'users_path'
+    # OR
+    resources :users, except: [:new]      # basicly we want all the routes except new user route
 end

@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
     VALID_EMAIL_REGAX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :email, presence: true, uniqueness: { case_sensitive: false }, length: { maximum: 105}, format: { with: VALID_EMAIL_REGAX }
 
+    has_secure_password
     private
         
 end

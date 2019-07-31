@@ -1,5 +1,7 @@
 
 class ArticlesController < ApplicationController
+    # this line will making sure that before these actions will call set_article and therefor we
+    # have set the @article
     before_action :set_article, only: [:edit, :update, :show, :destroy]
 
     def new 

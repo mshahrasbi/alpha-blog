@@ -9,6 +9,11 @@ Rails.application.routes.draw do
     get 'about', to: 'pages#about'
 
     get 'signup', to: 'users#new'
+    #
+    get 'login', to: 'sessions#new'
+    post 'login', to: 'sessions#create'
+    delete 'logout', to: 'sessions#destroy'
+    #
     # post 'users', to: 'users#create'    # this will you 'users_path'
     # OR
     resources :users, except: [:new]      # basicly we want all the routes except new user route

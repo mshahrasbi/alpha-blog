@@ -17,4 +17,5 @@ Rails.application.routes.draw do
     # post 'users', to: 'users#create'    # this will you 'users_path'
     # OR
     resources :users, except: [:new]      # basicly we want all the routes except new user route
+    resources :categories, except: [:destroy]
 end

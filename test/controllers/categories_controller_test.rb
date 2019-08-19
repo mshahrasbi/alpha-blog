@@ -6,6 +6,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest # for Rails 5 a
 
     def setup
         @category = Category.create(name: 'sports')
+        @user = User.create(username: "mo1", email: "mo1@mail.com", password: "password", admin: true)
     end
 
     test "should get categories index" do

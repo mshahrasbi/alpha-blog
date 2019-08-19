@@ -3,7 +3,14 @@ require "test_helper"
 
 class CreateCategoriesTest < ActionDispatch::IntegrationTest
 
+    def setup 
+        @user = User.create(username: "mo1", email: "mo1@mail.com", password: "password", admin: true)
+
+    end
+
     test "get new category form and create category" do
+        sign_in_as(@user, "password")
+
         get new_category_path
 
         # make sure we have gem 'rails-controller-testing'. if not add it to gemfile 
@@ -28,6 +35,8 @@ class CreateCategoriesTest < ActionDispatch::IntegrationTest
     end
 
     test "Invalid category submission results in failure" do
+        sign_in_as(@user, "password")
+
         get new_category_path
 
         assert_template 'categories/new'

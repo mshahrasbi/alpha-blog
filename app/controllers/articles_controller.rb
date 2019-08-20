@@ -23,6 +23,9 @@ class ArticlesController < ApplicationController
 
     def create
         # render plain: params[:article].inspect
+        # here article_params, will cantains the categories array as well and it knows
+        # what to do with it, only things we have to do is to make sure we update the 
+        # article_params function with category_ids: [] (white list this collection)
         @article = Article.new(article_params)
 
         @article.user = current_user
@@ -56,7 +59,7 @@ class ArticlesController < ApplicationController
     
     private
         def article_params
-            params.require(:article).permit(:title, :description)
+            params.require(:article).permit(:title, :description, category_ids: [])
         end
 
         def set_article

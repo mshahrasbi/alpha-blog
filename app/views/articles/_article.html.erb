@@ -18,6 +18,15 @@
                     </div>
                 </div>
 
+                <% if article.categories.any? %>
+                    <!-- here we are not using @article.categories.each method to go through all categories but
+                        this will do that automatically. This is a short cut, renders the categories. But this 
+                        will needs an partial under categories. Thus go to views -> categories, and create a partial
+                        _category.html.erb -->
+                    <p>Categories: <%= render article.categories %></p>
+                <% end %>
+
+
                 <% if logged_in? && (current_user == article.user || current_user.admin?) %>
                     <div class="article-actions">
                     
